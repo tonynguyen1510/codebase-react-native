@@ -1,0 +1,33 @@
+{
+	"name": "RenCity",
+	"displayName": "RenCity",
+	"expo": {
+		"name": "RenCity",
+		"description": "Rencity App",
+		"slug": "rencity",
+		"privacy": "public",
+		"sdkVersion": "18.0.0",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"primaryColor": "#fff",
+		"icon": "./images/icon.png",
+		"loading": {
+			"icon": "./images/rencity-logo.png",
+			"hideExponentText": false
+		},
+		"packagerOpts": {
+			"assetExts": [
+				"ttf",
+				"mp4"
+			]
+		},
+		"ios": {
+			"supportsTablet": true
+		},
+		"androidStatusBarColor": "#fbca08",
+		"androidStatusBar": {
+			"barStyle": "light-content",
+			"backgroundColor": "#fbca08"
+		}
+	}
+}
