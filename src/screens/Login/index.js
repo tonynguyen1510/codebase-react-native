@@ -15,7 +15,7 @@ import {
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import ButtonLoader from '../../components/ButtonLoader';
-// import FbBtnLogin from '../../components/FbBtnLogin';
+import FbBtnLogin from '../../components/FbBtnLogin';
 // import GgBtnLogin from '../../components/GgBtnLogin';
 
 import styles from './styles';
@@ -150,8 +150,8 @@ class Login extends Component {
 						<Text style={{ marginBottom: 15, marginTop: 30, fontStyle: 'italic' }}>
 							Hoặc đăng nhập bằng:
 						</Text>
-						{/* <FbBtnLogin navigation={navigation} />
-						<GgBtnLogin navigation={navigation} /> */}
+						<FbBtnLogin navigation={navigation} />
+						{/* <GgBtnLogin navigation={navigation} /> */}
 					</View>
 
 				</Content>
