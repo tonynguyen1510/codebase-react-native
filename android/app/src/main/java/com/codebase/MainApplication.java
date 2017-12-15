@@ -1,4 +1,4 @@
-package com.new2;
+package com.codebase;
 
 import android.app.Application;
 

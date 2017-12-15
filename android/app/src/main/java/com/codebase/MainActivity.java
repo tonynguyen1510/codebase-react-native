@@ -1,4 +1,4 @@
-package com.new2;
+package com.codebase;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "new2";
+        return "CodeBase";
     }
 }
