@@ -7,7 +7,9 @@
  * LastModified: 2017-07-20 17:17:37
  *-------------------------------------------------------*/
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { connect } from 'react-redux';
 
 import { Container, Spinner } from 'native-base';

@@ -1,5 +1,4 @@
 <resources>
     <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey"></string>
-    <string name="app_name">RenCity</string>
-	<string name="facebook_app_id">436295026763817</string>
+    <string name="app_name">new2</string>
 </resources>

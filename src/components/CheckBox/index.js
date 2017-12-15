@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import {
 	View,
 	Text,
@@ -27,10 +29,10 @@ const CheckBoxComponent = ({
 	);
 };
 
-CheckBoxComponent.propTypes = {
-	label: PropTypes.string,
-	input: PropTypes.object,
-	meta: PropTypes.object,
-};
+// CheckBoxComponent.propTypes = {
+// 	label: PropTypes.string,
+// 	input: PropTypes.object,
+// 	meta: PropTypes.object,
+// };
 
 export default CheckBoxComponent;

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import {
 	Header,
@@ -13,11 +14,11 @@ import {
 import color from '../../constants/color';
 
 class AppHeader extends Component {
-	static propTypes = {
-		name: PropTypes.string.isRequired,
-		hasBack: PropTypes.bool,
-		navigation: PropTypes.object,
-	};
+	// static propTypes = {
+	// 	name: PropTypes.string.isRequired,
+	// 	hasBack: PropTypes.bool,
+	// 	navigation: PropTypes.object,
+	// };
 
 	render() {
 		const { name, navigation, hasBack } = this.props;

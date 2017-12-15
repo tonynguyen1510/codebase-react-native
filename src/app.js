@@ -1,4 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+/* --------------------------------------------------------
+* Author Trần Đức Tiến
+* Email ductienas@gmail.com
+* Phone 0972970075
+*
+* Created: 2017-12-15 23:35:32
+*------------------------------------------------------- */
+
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { StyleSheet } from 'react-native';
 // import CodePush from 'react-native-code-push';
@@ -8,7 +17,7 @@ import Modal from 'react-native-modalbox';
 import MainStackRouter from './routers/MainStackRouter';
 import ProgressBar from './components/Loaders/ProgressBar';
 
-import theme from './themes/base-theme';
+// import theme from './themes/base-theme';
 
 import Spinner from './components/Loaders/Spinner';
 import MessageBox from './components/MessageBox';

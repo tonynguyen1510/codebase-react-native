@@ -1,11 +1,10 @@
-/*--------------------------------------------------------
- * Author Trần Đức Tiến
- * Email ductienas@gmail.com
- * Phone 0972970075
- * Created: 2017-05-23 11:22:49
- *
- * LastModified: 2017-05-23 11:22:49
- *-------------------------------------------------------*/
+/* --------------------------------------------------------
+* Author Trần Đức Tiến
+* Email ductienas@gmail.com
+* Phone 0972970075
+*
+* Created: 2017-12-15 23:36:07
+*------------------------------------------------------- */
 import merge from 'lodash/merge';
 import { put, call } from 'redux-saga/effects';
 

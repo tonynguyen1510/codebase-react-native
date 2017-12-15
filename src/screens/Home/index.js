@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Image } from 'react-native';
+import { Image, ImageBackground } from 'react-native';
 
 import {
 	Container,
@@ -35,7 +36,7 @@ class Home extends Component {
 					navigation={this.props.navigation}
 				/>
 
-				<Image source={launchscreenBg} style={styles.imageContainer} >
+				<ImageBackground source={launchscreenBg} style={styles.imageContainer} >
 					<Image square style={{ width: 120, height: 120, alignSelf: 'center', marginTop: '10%' }} source={logo} />
 					<Content style={{ paddingRight: 20, paddingLeft: 20, marginTop: 20 }}>
 						<Button
@@ -48,7 +49,7 @@ class Home extends Component {
 							<Icon active name="search" style={{ color: '#fbca08' }} />
 						</Button>
 					</Content>
-				</Image>
+				</ImageBackground>
 			</Container>
 		);
 	}

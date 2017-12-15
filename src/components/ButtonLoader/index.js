@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
 	Button,
@@ -23,11 +24,11 @@ const ButtonLoader = ({ icon, loading, text, onPress, ...restOfProps }) => {
 	);
 }
 
-ButtonLoader.propTypes = {
-	loading: PropTypes.bool.isRequired,
-	text: PropTypes.string.isRequired,
-	onPress: PropTypes.func.isRequired,
-	icon: PropTypes.string
-};
+// ButtonLoader.propTypes = {
+// 	loading: PropTypes.bool.isRequired,
+// 	text: PropTypes.string.isRequired,
+// 	onPress: PropTypes.func.isRequired,
+// 	icon: PropTypes.string
+// };
 
 export default ButtonLoader;

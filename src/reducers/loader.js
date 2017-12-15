@@ -1,11 +1,10 @@
-/*--------------------------------------------------------
- * Author Trần Đức Tiến
- * Email ductienas@gmail.com
- * Phone 0972970075
- * Created: 2017-07-20 18:07:45
- *
- * LastModified: 2017-07-20 18:07:45
- *-------------------------------------------------------*/
+/* --------------------------------------------------------
+* Author Trần Đức Tiến
+* Email ductienas@gmail.com
+* Phone 0972970075
+*
+* Created: 2017-12-16 00:43:23
+*------------------------------------------------------- */
 
 export default function (state = { sending: true }, action) {
 	switch (action.type) {

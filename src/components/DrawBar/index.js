@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Image, TouchableHighlight, View } from 'react-native';
+import { Image, ImageBackground, TouchableHighlight, View } from 'react-native';
 import {
 	Text,
 	Container,
@@ -99,7 +100,7 @@ class DrawBar extends Component {
 		return (
 			<Container>
 				<Content bounces={false} style={{ flex: 1, backgroundColor: '#fff', top: -1 }}>
-					<Image source={drawerCover} style={styles.drawerCover}>
+					<ImageBackground source={drawerCover} style={styles.drawerCover}>
 						{
 							AuthStorage.loggedIn ?
 								<TouchableHighlight onPress={this.handleGoToProfile} style={{ flex: 1, justifyContent: 'center', alignContent: 'center', alignSelf: 'center' }}>
@@ -110,7 +111,7 @@ class DrawBar extends Component {
 								</TouchableHighlight> :
 								<Image square style={styles.drawerImage} source={drawerImage} />
 						}
-					</Image>
+					</ImageBackground>
 					<List
 						dataArray={AuthStorage.loggedIn ? authenticatedRoutes : unauthenticatedRoutes}
 						renderRow={

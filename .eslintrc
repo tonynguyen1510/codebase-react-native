@@ -1,0 +1,38 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "plugins": [
+        "react",
+        "jsx-a11y",
+        "import",
+        "react-native"
+    ],
+    "rules": {
+		"react/require-default-props": "off",
+		"react/prefer-stateless-function": "warn",
+		"import/prefer-default-export": "off",
+		"jsx-a11y/href-no-hash": "off",
+        "no-underscore-dangle": "off",
+        "react/forbid-prop-types": "off",
+        "max-len": "off",
+        "global-require": "off",
+        "quote-props": "off",
+        "arrow-parens": "off",
+        "comma-dangle": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+		"indent": [2, "tab", {"SwitchCase": 1}],
+		"react/jsx-indent": [2, "tab"],
+		"react/jsx-indent-props": [2, "tab"],
+		"no-tabs": 0
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".android.js", ".ios.js"]
+            }
+        }
+    },
+	"globals": {
+		"fetch": true
+	}
+}

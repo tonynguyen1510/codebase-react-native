@@ -7,7 +7,8 @@
  * LastModified: 2017-07-12 14:17:52
  *-------------------------------------------------------*/
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Container, Header, Item, Input, Icon, Button, Text, Content, List, ListItem, Separator, Left, Body, Right } from 'native-base';
 
 import color from '../../constants/color';

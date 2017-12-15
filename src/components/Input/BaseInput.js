@@ -1,4 +1,5 @@
-import { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { Animated, Text, View, ViewPropTypes } from 'react-native';
 
@@ -7,7 +8,7 @@ export default class BaseInput extends Component {
 		label: PropTypes.string,
 		value: PropTypes.string,
 		defaultValue: PropTypes.string,
-		style: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
+		// style: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
 		inputStyle: Text.propTypes.style,
 		labelStyle: Text.propTypes.style,
 		easing: PropTypes.func,

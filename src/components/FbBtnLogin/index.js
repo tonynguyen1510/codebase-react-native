@@ -1,116 +1,92 @@
-/*--------------------------------------------------------
- * Author Trần Đức Tiến
- * Email ductienas@gmail.com
- * Phone 0972970075
- * Created: 2017-07-30 10:55:29
- *
- * LastModified: 2017-07-30 10:55:29
- *-------------------------------------------------------*/
+// /*--------------------------------------------------------
+//  * Author Trần Đức Tiến
+//  * Email ductienas@gmail.com
+//  * Phone 0972970075
+//  *
+//  * LastModified: 2017-07-30 10:55:29
+//  *-------------------------------------------------------*/
 
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
+// import React, { Component } from 'react';
+// import PropTypes from 'prop-types';
+// import { connect } from 'react-redux';
 
-import {
-	Button,
-	Text,
-	Icon,
-} from 'native-base';
-import { LoginManager, AccessToken, GraphRequest, GraphRequestManager } from 'react-native-fbsdk';
+// import {
+// 	Button,
+// 	Text,
+// 	Icon,
+// } from 'native-base';
+// import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
-import AuthStorage from '../../utils/AuthStorage';
+// import AuthStorage from '../../utils/AuthStorage';
 
-import { loginSocial } from '../../actions/auth';
-import { toggleMessageBox } from '../../actions/messageBox';
+// import { loginFacebook } from '../../actions/auth';
+// import { toggleMessageBox } from '../../actions/messageBox';
 
-class FbBtnLogin extends Component {
-	static propTypes = {
-		navigation: PropTypes.object.isRequired,
-		loginSocial: PropTypes.func.isRequired,
-		toggleMessageBox: PropTypes.func.isRequired,
-	}
+// class FbBtnLogin extends Component {
+// 	static propTypes = {
+// 		navigation: PropTypes.object.isRequired,
+// 		loginFacebook: PropTypes.func.isRequired,
+// 		toggleMessageBox: PropTypes.func.isRequired,
+// 	}
 
-	handleLoginFb = () => {
-		LoginManager.logInWithReadPermissions(['public_profile']).then((result) => {
-			if (result.isCancelled) {
-				console.log('Login was cancelled');
-			} else {
-				AccessToken.getCurrentAccessToken().then(
-					(data) => {
-						const { accessToken } = data;
+// 	handleLoginFb = () => {
+// 		LoginManager.logInWithReadPermissions(['public_profile']).then((result) => {
+// 			if (result.isCancelled) {
+// 				console.log('Login was cancelled');
+// 			} else {
+// 				AccessToken.getCurrentAccessToken().then(
+// 					(data) => {
+// 						const { accessToken } = data;
 
-						const responseInfoCallback = (error, resultUser) => {
-							if (error) {
-								this.props.toggleMessageBox({
-									message: `Error fetching data: ${error}`,
-									type: 'error'
-								});
-							} else {
-								const { picture, cover, id, link, name, ...user } = resultUser;
+// 						if (!accessToken) {
+// 							this.props.toggleMessageBox({
+// 								message: 'AccessToken not found',
+// 								type: 'error'
+// 							});
 
-								user.avatar = resultUser.picture.data.url;
-								user.cover = resultUser.cover.source;
-								user.fullName = name;
-								user.fbVerified = { id, link };
-								user.loginType = 'facebook';
+// 							return;
+// 						}
 
-								this.props.loginSocial(user, () => {
-									if (AuthStorage.loggedIn) {
-										this.props.navigation.navigate('Home');
-									}
-								});
-							}
-						}
+// 						this.props.loginFacebook({ accessToken }, () => {
+// 							if (AuthStorage.loggedIn) {
+// 								this.props.navigation.navigate('Home');
+// 							}
+// 						});
+// 					}
+// 				);
+// 			}
+// 		}, (error) => {
+// 			this.props.toggleMessageBox({
+// 				message: `Login failed with error: ${error}`,
+// 				type: 'error'
+// 			});
+// 		});
+// 	}
 
-						const infoRequest = new GraphRequest(
-							'/me',
-							{
-								accessToken,
-								parameters: {
-									fields: {
-										string: 'email,name,gender,photos,cover,picture,link'
-									}
-								}
-							},
-							responseInfoCallback
-						);
+// 	render() {
+// 		return (
+// 			<Button
+// 				iconLeft
+// 				block
+// 				style={{ marginBottom: 15 }}
+// 				onPress={this.handleLoginFb}
+// 			>
+// 				<Icon name="logo-facebook" style={{ fontSize: 24, color: '#fff', marginRight: 10 }} />
+// 				<Text>Facebook</Text>
+// 			</Button>
+// 		);
+// 	}
+// }
 
-						// Start the graph request.
-						new GraphRequestManager().addRequest(infoRequest).start()
-					}
-				);
-			}
-		}, (error) => {
-			this.props.toggleMessageBox({
-				message: `Login failed with error: ${error}`,
-				type: 'error'
-			});
-		});
-	}
+// function mapStateToProps(state) {
+// 	return {
+// 		// auth: state.auth
+// 	};
+// }
 
-	render() {
-		return (
-			<Button
-				iconLeft
-				block
-				style={{ marginBottom: 15 }}
-				onPress={this.handleLoginFb}
-			>
-				<Icon name="logo-facebook" style={{ fontSize: 24, color: '#fff', marginRight: 10 }} />
-				<Text>Facebook</Text>
-			</Button>
-		);
-	}
-}
+// const mapDispatchToProps = {
+// 	loginFacebook,
+// 	toggleMessageBox
+// };
 
-function mapStateToProps(state) {
-	return {
-		// auth: state.auth
-	};
-}
-
-const mapDispatchToProps = {
-	loginSocial,
-	toggleMessageBox
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FbBtnLogin);
+// export default connect(mapStateToProps, mapDispatchToProps)(FbBtnLogin);
