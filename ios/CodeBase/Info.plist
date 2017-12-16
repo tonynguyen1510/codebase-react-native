@@ -73,14 +73,14 @@
     <dict>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>fb436295026763817</string>
+        <string>fb2049088788714176</string>
       </array>
     </dict>
   </array>
   <key>FacebookAppID</key>
-  <string>436295026763817</string>
+  <string>2049088788714176</string>
   <key>FacebookDisplayName</key>
-  <string>RenCity</string>
+  <string>CodeBase</string>
   <key>LSApplicationQueriesSchemes</key>
   <array>
     <string>fbapi</string>
