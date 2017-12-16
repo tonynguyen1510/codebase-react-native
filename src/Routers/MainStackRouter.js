@@ -2,15 +2,15 @@
 import { StackNavigator as stackNavigator } from 'react-navigation';
 // import { Header, Left, Button, Icon, Body, Title, Right } from 'native-base';
 
-import DrawerRouter from './DrawerRouter';
+import Login from 'src/screens/Login';
+import SignUp from 'src/screens/SignUp';
+import ForgotPass from 'src/screens/ForgotPass';
+import Search from 'src/screens/Search';
+import Home from 'src/screens/Home';
+import BlankPage from 'src/screens/BlankPage';
+import Profile from 'src/screens/Profile';
 
-import Login from '../screens/Login';
-import SignUp from '../screens/SignUp';
-import ForgotPass from '../screens/ForgotPass';
-import Search from '../screens/Search';
-import Home from '../screens/Home';
-import BlankPage from '../screens/BlankPage';
-import Profile from '../screens/Profile';
+import DrawerRouter from './DrawerRouter';
 
 const StackNav = stackNavigator(
 	{
@@ -22,7 +22,7 @@ const StackNav = stackNavigator(
 		Search: { screen: Search },
 		Home: { screen: Home },
 		Profile: { screen: Profile },
-		BlankPage: { screen: BlankPage }
+		BlankPage: { screen: BlankPage },
 	},
 	{
 		initialRouteName: 'Drawer',

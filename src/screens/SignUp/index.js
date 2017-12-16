@@ -8,13 +8,13 @@ import {
 	Content,
 	Button,
 	View,
-	Text
+	Text,
 } from 'native-base';
 
-import Header from '../../components/Header';
-import Input from '../../components/Input';
-import ButtonLoader from '../../components/ButtonLoader';
-import CheckBox from '../../components/CheckBox';
+import Header from 'src/components/Header';
+import Input from 'src/components/Input';
+import ButtonLoader from 'src/components/ButtonLoader';
+import CheckBox from 'src/components/CheckBox';
 
 import styles from './styles';
 
@@ -43,16 +43,34 @@ const validate = values => {
 	return errors;
 };
 
-class SignUp extends Component {
+function mapStateToProps(/* state */) {
+	return {
+		// requestStatus: state.requestStatus
+	};
+}
+
+const mapDispatchToProps = {
+	// setUser
+};
+
+@reduxForm({
+	form: 'signUp',
+	validate,
+	initialValues: {
+		sendPR: true,
+	}
+})
+@connect(mapStateToProps, mapDispatchToProps)
+export default class SignUp extends Component {
 	static propTypes = {
 		...propTypes,
 		setUser: PropTypes.func,
-		navigation: PropTypes.object
+		navigation: PropTypes.object,
 	}
 
 	state = {
 		loading: false,
-		hasError: false
+		hasError: false,
 	}
 
 	handlePressSubmit = (data) => {
@@ -135,23 +153,3 @@ class SignUp extends Component {
 		);
 	}
 }
-
-function mapStateToProps(state) {
-	return {
-		// requestStatus: state.requestStatus
-	};
-}
-
-const mapDispatchToProps = {
-	// setUser
-};
-
-export default reduxForm(
-	{
-		form: 'signUp',
-		validate,
-		initialValues: {
-			sendPR: true,
-		}
-	}
-)(connect(mapStateToProps, mapDispatchToProps)(SignUp));

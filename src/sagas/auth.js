@@ -6,10 +6,10 @@
 * Created: 2017-12-15 23:36:49
 *------------------------------------------------------- */
 
-// import { LoginManager } from 'react-native-fbsdk';
-// import { GoogleSignin } from 'react-native-google-signin';
+import { LoginManager } from 'react-native-fbsdk';
+import { GoogleSignin } from 'react-native-google-signin';
 import { take, call, put, cancel, fork, all } from 'redux-saga/effects';
-import fetchApi, { uploadImage, deleteImage } from '../utils/FetchApi';
+import fetchApi, { uploadImage, deleteImage } from 'src/utils/FetchApi';
 
 import AuthStorage from '../utils/AuthStorage';
 
@@ -124,16 +124,16 @@ function* logoutFlow() {
 			const response = yield call(fetchApi, 'users/logout', {}, { method: 'POST' });
 			if (response && !response.error) {
 				if (AuthStorage.loginType === 'facebook') {
-					// yield call(LoginManager.logOut);
+					yield call(LoginManager.logOut);
 				}
 				if (AuthStorage.loginType === 'google') {
-					// GoogleSignin.signOut()
-						// .then(() => {
-						// 	console.log('out');
-						// })
-						// .catch((err) => {
-						// 	console.log('err', err);
-						// });
+					GoogleSignin.signOut()
+						.then(() => {
+							console.log('out');
+						})
+						.catch((err) => {
+							console.log('err', err);
+						});
 				}
 
 				yield call(AuthStorage.destroy, next);

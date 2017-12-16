@@ -9,13 +9,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { StyleSheet } from 'react-native';
+// import { StyleSheet } from 'react-native';
 // import CodePush from 'react-native-code-push';
 
 import { Container, Content, Text, View, Root, Toast } from 'native-base';
-import Modal from 'react-native-modalbox';
+// import Modal from 'react-native-modalbox';
 import MainStackRouter from './routers/MainStackRouter';
-import ProgressBar from './components/Loaders/ProgressBar';
+// import ProgressBar from './components/Loaders/ProgressBar';
 
 // import theme from './themes/base-theme';
 
@@ -24,20 +24,20 @@ import MessageBox from './components/MessageBox';
 
 import { toggleMessageBox } from './actions/messageBox';
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		width: null,
-		height: null
-	},
-	modal: {
-		justifyContent: 'center',
-		alignItems: 'center'
-	},
-	modal1: {
-		height: 300
-	}
-});
+// const styles = StyleSheet.create({
+// 	container: {
+// 		flex: 1,
+// 		width: null,
+// 		height: null,
+// 	},
+// 	modal: {
+// 		justifyContent: 'center',
+// 		alignItems: 'center',
+// 	},
+// 	modal1: {
+// 		height: 300,
+// 	},
+// });
 
 class App extends Component {
 	static propTypes = {
@@ -48,7 +48,7 @@ class App extends Component {
 	state = {
 		showDownloadingModal: false,
 		showInstalling: false,
-		downloadProgress: 0
+		downloadProgress: 0,
 	}
 
 	componentDidMount() {

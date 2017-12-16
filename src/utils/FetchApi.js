@@ -11,7 +11,7 @@ import { put, call } from 'redux-saga/effects';
 import constants from '../constants';
 import AuthStorage from './AuthStorage';
 
-const API_HOST = constants.API_HOST;
+const { API_HOST } = constants;
 
 const fetching = (url, options) => fetch(API_HOST + url, options)
 	.then(response => {
@@ -32,7 +32,7 @@ export const uploadImage = function* (url, params) {
 	const options = {
 		method: 'POST',
 		headers: {},
-		body: params
+		body: params,
 	};
 
 	// set token
@@ -56,7 +56,7 @@ export const uploadImage = function* (url, params) {
 export const deleteImage = function* (container, file) {
 	const options = {
 		method: 'DELETE',
-		headers: {}
+		headers: {},
 	};
 
 	// set token

@@ -3,9 +3,7 @@ import variable from "./../variables/platform";
 export default (variables = variable) => {
 	const swipeRowTheme = {
 		"NativeBase.ListItem": {
-			".list": {
-				backgroundColor: "#FFF",
-			},
+			backgroundColor: "#FFF",
 			marginLeft: 0,
 		},
 		"NativeBase.Left": {

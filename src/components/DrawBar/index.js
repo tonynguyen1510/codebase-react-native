@@ -22,9 +22,9 @@ import color from '../../constants/color';
 
 import styles from './style';
 
-const drawerCover = require('../../../images/drawer-cover.jpg');
+const drawerCover = require('src/assets/images/drawer-cover.jpg');
 
-const drawerImage = require('../../../images/rencity-logo.png');
+const drawerImage = require('src/assets/images/rencity-logo.png');
 
 const authenticatedRoutes = [
 	{

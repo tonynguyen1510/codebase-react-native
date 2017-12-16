@@ -6,7 +6,6 @@ const deviceHeight = Dimensions.get("window").height;
 const deviceWidth = Dimensions.get("window").width;
 const platform = Platform.OS;
 const platformStyle = "material";
-const isIphoneX = platform === "ios" && deviceHeight === 812 && deviceWidth === 375;
 
 export default {
   platformStyle,
@@ -26,9 +25,6 @@ export default {
   btnFontFamily: platform === "ios" ? "Roboto" : "Roboto_medium",
   btnDisabledBg: "#b5b5b5",
   btnDisabledClr: "#f1f1f1",
-
-  //Android
-  btnUppercaseAndroidText: true,
 
   // CheckBox
   CheckboxRadius: 0,
@@ -118,8 +114,6 @@ export default {
   brandDanger: "#d9534f",
   brandWarning: "#f0ad4e",
   brandSidebar: "#252932",
-  brandDark: "#000",
-  brandLight: "#f4f4f4",
 
   // Font
   fontFamily: "Roboto",
@@ -136,9 +130,8 @@ export default {
   },
 
   // Footer
-  footerHeight: isIphoneX ? 89 : 55,
+  footerHeight: 55,
   footerDefaultBg: "#3F51B5",
-  footerPaddingBottom: isIphoneX ? 34 : 0,
 
   // FooterTab
   tabBarTextColor: "#b3c7f9",
@@ -159,20 +152,17 @@ export default {
   // Header
   toolbarBtnColor: "#fff",
   toolbarDefaultBg: "#3F51B5",
-  toolbarHeight: platform === "ios" ? (isIphoneX ? 88 : 64) : 56,
+  toolbarHeight: platform === "ios" ? 76 : 56,
   toolbarIconSize: platform === "ios" ? 20 : 22,
   toolbarSearchIconSize: platform === "ios" ? 20 : 23,
   toolbarInputColor: "#fff",
   searchBarHeight: platform === "ios" ? 30 : 40,
-  searchBarInputHeight: platform === "ios" ? 30 : 50,
   toolbarInverseBg: "#222",
   toolbarTextColor: "#fff",
   toolbarDefaultBorder: "#3F51B5",
   iosStatusbar: "light-content",
   get statusBarColor() {
-    return color(this.toolbarDefaultBg)
-      .darken(0.2)
-      .hex();
+    return color(this.toolbarDefaultBg).darken(0.2).hex();
   },
 
   // Icon
@@ -211,9 +201,9 @@ export default {
   lineHeight: platform === "ios" ? 20 : 24,
 
   // List
-  listBg: "#fff",
   listBorderColor: "#c9c9c9",
   listDividerBg: "#f4f4f4",
+  listItemHeight: 45,
   listBtnUnderlayColor: "#DDD",
 
   // Card
@@ -239,9 +229,7 @@ export default {
   radioColor: "#7e7e7e",
 
   get radioSelectedColor() {
-    return color(this.radioColor)
-      .darken(0.2)
-      .hex();
+    return color(this.radioColor).darken(0.2).hex();
   },
 
   // Spinner
@@ -273,9 +261,7 @@ export default {
   contentPadding: 10,
 
   get darkenHeader() {
-    return color(this.tabBgColor)
-      .darken(0.03)
-      .hex();
+    return color(this.tabBgColor).darken(0.03).hex();
   },
 
   dropdownBg: "#000",
@@ -285,8 +271,7 @@ export default {
   jumbotronPadding: 30,
   deviceWidth,
   deviceHeight,
-  isIphoneX,
 
   // New Variable
-  inputGroupRoundedBorderRadius: 30,
+  inputGroupRoundedBorderRadius: 30
 };

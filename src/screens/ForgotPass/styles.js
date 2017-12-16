@@ -1,11 +1,17 @@
+/* --------------------------------------------------------
+* Author Trần Đức Tiến
+* Email ductienas@gmail.com
+* Phone 0972970075
+*
+* Created: 2017-12-16 15:21:00
+*------------------------------------------------------- */
+// import { StyleSheet, Dimensions } from 'react-native';
 
-import { StyleSheet, Dimensions } from 'react-native';
-
-const deviceHeight = Dimensions.get('window').height;
+// const deviceHeight = Dimensions.get('window').height;
 
 export default {
 	container: {
-		backgroundColor: '#fff'
+		backgroundColor: '#fff',
 	},
 	logo: {
 		marginTop: '20%',

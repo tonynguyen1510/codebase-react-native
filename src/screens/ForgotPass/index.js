@@ -8,7 +8,6 @@ import {
 	Button,
 	View,
 	Text,
-	Body
 } from 'native-base';
 
 import Header from '../../components/Header';
@@ -43,11 +42,26 @@ const validate = values => {
 	return error;
 };
 
-class ForgotPass extends Component {
+function mapStateToProps(/* state */) {
+	return {
+		// requestStatus: state.requestStatus
+	};
+}
+
+const mapDispatchToProps = {
+	// setUser
+};
+
+@reduxForm({
+	form: 'forgotPass',
+	validate,
+})
+@connect(mapStateToProps, mapDispatchToProps)
+export default class ForgotPass extends Component {
 	static propTypes = {
 		...propTypes,
 		setUser: PropTypes.func,
-		navigation: PropTypes.object
+		navigation: PropTypes.object,
 	}
 
 	handlePress = (data) => {
@@ -55,7 +69,7 @@ class ForgotPass extends Component {
 	}
 
 	render() {
-		const { handleSubmit, pristine, submitting, navigation } = this.props;
+		const { handleSubmit, /* pristine, submitting, */ navigation } = this.props;
 
 		return (
 			<Container style={styles.container}>
@@ -97,20 +111,3 @@ class ForgotPass extends Component {
 		);
 	}
 }
-
-function mapStateToProps(state) {
-	return {
-		// requestStatus: state.requestStatus
-	};
-}
-
-const mapDispatchToProps = {
-	// setUser
-};
-
-export default reduxForm(
-	{
-		form: 'forgotPass',
-		validate
-	}
-)(connect(mapStateToProps, mapDispatchToProps)(ForgotPass));

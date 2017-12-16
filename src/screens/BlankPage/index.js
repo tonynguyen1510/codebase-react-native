@@ -11,25 +11,38 @@ import {
 	Icon,
 	Left,
 	Right,
-	Body
+	Body,
 } from 'native-base';
 
 import styles from './styles';
 
-class BlankPage extends Component {
-	static navigationOptions = {
-		header: null
+function bindAction(dispatch) {
+	return {
+		openDrawer: () => dispatch(openDrawer()),
 	};
+}
+
+const mapStateToProps = state => ({
+	name: state.user.name,
+	index: state.list.selectedIndex,
+	list: state.list.list,
+});
+
+@connect(mapStateToProps, bindAction)
+export default class BlankPage extends Component {
+	static navigationOptions = {
+		header: null,
+	};
+
 	static propTypes = {
 		name: PropTypes.string,
-		index: PropTypes.number,
-		list: PropTypes.arrayOf(PropTypes.string),
-		openDrawer: PropTypes.func
+		navigation: PropTypes.object.isRequire,
+		// openDrawer: PropTypes.func,
 	};
 
 	render() {
-		const { props: { name, index, list } } = this;
-		console.log(this.props.navigation, "000000000");
+		const { props: { name } } = this;
+
 		return (
 			<Container style={styles.container}>
 				<Header>
@@ -48,26 +61,14 @@ class BlankPage extends Component {
 
 				<Content padder>
 					<Text>
-						{this.props.navigation.state.params.name.item !== undefined
-							? this.props.navigation.state.params.name.item
-							: "Create Something Awesome . . ."}
+						{
+							this.props.navigation.state.params.name.item !== undefined
+								? this.props.navigation.state.params.name.item
+								: 'Create Something Awesome . . .'
+						}
 					</Text>
 				</Content>
 			</Container>
 		);
 	}
 }
-
-function bindAction(dispatch) {
-	return {
-		openDrawer: () => dispatch(openDrawer())
-	};
-}
-
-const mapStateToProps = state => ({
-	name: state.user.name,
-	index: state.list.selectedIndex,
-	list: state.list.list
-});
-
-export default connect(mapStateToProps, bindAction)(BlankPage);

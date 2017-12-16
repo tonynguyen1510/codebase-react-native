@@ -34,7 +34,7 @@ class AppSpinner extends Component {
 
 function mapStateToProps(state) {
 	return {
-		loading: state.loader.sending
+		loading: state.loader.sending,
 	};
 }
 

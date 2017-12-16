@@ -1,12 +1,12 @@
 import React from 'react';
 import { DrawerNavigator as drawerNavigator } from 'react-navigation';
 
-import Home from '../screens/Home';
-import Login from '../screens/Login';
-import Profile from '../screens/Profile';
-import BlankPage2 from '../screens/BlankPage2';
+import Home from 'src/screens/Home';
+import Login from 'src/screens/Login';
+import Profile from 'src/screens/Profile';
+import BlankPage2 from 'src/screens/BlankPage2';
 
-import DrawBar from '../components/DrawBar';
+import DrawBar from 'src/components/DrawBar';
 
 const DrawNav = drawerNavigator(
 	{
@@ -18,10 +18,10 @@ const DrawNav = drawerNavigator(
 	{
 		initialRouteName: 'Login',
 		contentOptions: {
-			activeTintColor: 'yellow'
+			activeTintColor: 'yellow',
 		},
-		contentComponent: props => <DrawBar {...props} />
-	}
+		contentComponent: props => <DrawBar {...props} />,
+	},
 );
 
 export default DrawNav;

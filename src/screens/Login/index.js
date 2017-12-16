@@ -12,17 +12,17 @@ import {
 	Text,
 } from 'native-base';
 
-import Header from '../../components/Header';
-import Input from '../../components/Input';
-import ButtonLoader from '../../components/ButtonLoader';
-import FbBtnLogin from '../../components/FbBtnLogin';
-import GgBtnLogin from '../../components/GgBtnLogin';
+import { loginRequest } from 'src/actions/auth';
+
+import Header from 'src/components/Header';
+import Input from 'src/components/Input';
+import ButtonLoader from 'src/components/ButtonLoader';
+import FbBtnLogin from 'src/components/FbBtnLogin';
+import GgBtnLogin from 'src/components/GgBtnLogin';
+
+import AuthStorage from 'src/utils/AuthStorage';
 
 import styles from './styles';
-
-import AuthStorage from '../../utils/AuthStorage';
-
-import { loginRequest } from '../../actions/auth';
 
 const validate = values => {
 	const errors = {};
@@ -43,15 +43,34 @@ const validate = values => {
 	return errors;
 };
 
-class Login extends Component {
+function mapStateToProps(state) {
+	return {
+		auth: state.auth,
+	};
+}
+
+const mapDispatchToProps = {
+	loginRequest,
+};
+
+@reduxForm({
+	form: 'login',
+	validate,
+	initialValues: {
+		email: 'admin@gmail.com',
+		password: '123456',
+	},
+})
+@connect(mapStateToProps, mapDispatchToProps)
+export default class Login extends Component {
 	static propTypes = {
 		...propTypes,
-		navigation: PropTypes.object
+		navigation: PropTypes.object,
 	}
 
 	state = {
 		loading: false,
-		hasError: false
+		hasError: false,
 	}
 
 	componentWillMount() {
@@ -65,7 +84,7 @@ class Login extends Component {
 		if (auth.error && this.state.loading) {
 			this.setState({
 				loading: false,
-				hasError: true
+				hasError: true,
 			});
 		}
 	}
@@ -73,7 +92,7 @@ class Login extends Component {
 	handlePressSubmit = (data) => {
 		this.setState({
 			loading: true,
-			hasError: false
+			hasError: false,
 		});
 		this.props.loginRequest(data, () => {
 			if (AuthStorage.token) {
@@ -159,24 +178,3 @@ class Login extends Component {
 		);
 	}
 }
-
-function mapStateToProps(state) {
-	return {
-		auth: state.auth
-	};
-}
-
-const mapDispatchToProps = {
-	loginRequest
-};
-
-export default reduxForm(
-	{
-		form: 'login',
-		validate,
-		initialValues: {
-			email: 'admin@gmail.com',
-			password: '123456'
-		}
-	}
-)(connect(mapStateToProps, mapDispatchToProps)(Login));

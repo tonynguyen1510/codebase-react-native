@@ -2,9 +2,8 @@
  * Author Trần Đức Tiến
  * Email ductienas@gmail.com
  * Phone 0972970075
- * Created: 2017-07-21 15:51:23
  *
- * LastModified: 2017-07-21 15:51:23
+ * Created: 2017-07-21 15:51:23
  *-------------------------------------------------------*/
 
 export default {

@@ -2,9 +2,8 @@
  * Author Trần Đức Tiến
  * Email ductienas@gmail.com
  * Phone 0972970075
- * Created: 2017-07-21 21:00:52
  *
- * LastModified: 2017-07-21 21:00:52
+ * Created: 2017-07-21 21:00:52
  *-------------------------------------------------------*/
 
 function auth(state = {}, action) {

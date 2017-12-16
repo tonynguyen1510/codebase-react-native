@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {
 	Container,
 	Content,
-	Text
+	Text,
 } from 'native-base';
 
 import Header from '../../components/Header';

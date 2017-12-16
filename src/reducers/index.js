@@ -17,5 +17,5 @@ export default {
 	form: formReducer,
 	loader,
 	messageBox,
-	auth
+	auth,
 };

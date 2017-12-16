@@ -2,9 +2,8 @@
  * Author Trần Đức Tiến
  * Email ductienas@gmail.com
  * Phone 0972970075
- * Created: 2017-07-30 10:55:08
  *
- * LastModified: 2017-07-30 10:55:08
+ * Created: 2017-07-30 10:55:08
  *-------------------------------------------------------*/
 
 import React, { Component } from 'react';
@@ -20,9 +19,20 @@ import {
 } from 'native-base';
 import Modal from 'react-native-modalbox';
 
-import { toggleMessageBox } from '../../actions/messageBox';
+import { toggleMessageBox } from 'src/actions/messageBox';
 
-class MessageBox extends Component {
+function mapStateToProps(state) {
+	return {
+		messageBox: state.messageBox,
+	};
+}
+
+const mapDispatchToProps = {
+	toggleMessageBox,
+};
+
+@connect(mapStateToProps, mapDispatchToProps)
+export default class MessageBox extends Component {
 	static propTypes = {
 		navigation: PropTypes.object,
 		messageBox: PropTypes.object,
@@ -30,7 +40,7 @@ class MessageBox extends Component {
 	}
 
 	state = {
-		isOpen: false
+		isOpen: false,
 	}
 
 	handleClose = () => {
@@ -68,15 +78,3 @@ class MessageBox extends Component {
 		);
 	}
 }
-
-function mapStateToProps(state) {
-	return {
-		messageBox: state.messageBox
-	};
-}
-
-const mapDispatchToProps = {
-	toggleMessageBox
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(MessageBox);

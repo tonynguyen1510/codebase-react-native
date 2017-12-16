@@ -1,11 +1,11 @@
 
-import { StyleSheet, Dimensions } from 'react-native';
+// import { StyleSheet, Dimensions } from 'react-native';
 
-const deviceHeight = Dimensions.get('window').height;
+// const deviceHeight = Dimensions.get('window').height;
 
 export default {
 	container: {
-		backgroundColor: '#fff'
+		backgroundColor: '#fff',
 	},
 	logo: {
 		marginTop: '20%',

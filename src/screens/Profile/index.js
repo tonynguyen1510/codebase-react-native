@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 import {
 	Container,
 	Content,
-	Text
+	Text,
 } from 'native-base';
 
-import Header from '../../components/Header';
+import Header from 'src/components/Header';
 
 class Profile extends Component {
 
 	static propTypes = {
-		navigation: PropTypes.object
+		navigation: PropTypes.object,
 	};
 
 	render() {

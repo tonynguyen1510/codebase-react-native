@@ -8,20 +8,31 @@ import {
 	Content,
 	Icon,
 	Button,
-	Text
+	Text,
 } from 'native-base';
 // import { Grid, Row } from 'react-native-easy-grid';
 
-import Header from '../../components/Header';
+import Header from 'src/components/Header';
 
 import styles from './styles';
 
-const launchscreenBg = require('../../../images/home.jpg');
-const logo = require('../../../images/rencity-logo.png');
+const launchscreenBg = require('src/assets/images/home.jpg');
+const logo = require('src/assets/images/rencity-logo.png');
 
-class Home extends Component {
+function mapStateToProps(/* state */) {
+	return {
+		// requestStatus: state.requestStatus
+	};
+}
+
+const mapDispatchToProps = {
+	// setUser
+};
+
+@connect(mapStateToProps, mapDispatchToProps)
+export default class Home extends Component {
 	static propTypes = {
-		navigation: PropTypes.object.isRequired
+		navigation: PropTypes.object.isRequired,
 	};
 
 	handleSearch = () => {
@@ -54,15 +65,3 @@ class Home extends Component {
 		);
 	}
 }
-
-function mapStateToProps(state) {
-	return {
-		// requestStatus: state.requestStatus
-	};
-}
-
-const mapDispatchToProps = {
-	// setUser
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
