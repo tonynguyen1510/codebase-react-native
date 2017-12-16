@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "644292004780",
+    "project_id": "codebase-189204"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644292004780:android:8036e63a6d85b3d3",
+        "android_client_info": {
+          "package_name": "com.codebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "644292004780-srqikdvoils57oashjrk067dvrqha9ef.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codebase",
+            "certificate_hash": "d085ec4d4f5e8fcf943ebb15227c518f129754f6"
+          }
+        },
+        {
+          "client_id": "644292004780-4smqm48dgpn584kd1tg7i2s32g0h1oto.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1dF_OXG3WhohU9al7HQ0Yobqpa14tQS4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
