@@ -16,7 +16,7 @@ import Header from '../../components/Header';
 import Input from '../../components/Input';
 import ButtonLoader from '../../components/ButtonLoader';
 import FbBtnLogin from '../../components/FbBtnLogin';
-// import GgBtnLogin from '../../components/GgBtnLogin';
+import GgBtnLogin from '../../components/GgBtnLogin';
 
 import styles from './styles';
 
@@ -151,7 +151,7 @@ class Login extends Component {
 							Hoặc đăng nhập bằng:
 						</Text>
 						<FbBtnLogin navigation={navigation} />
-						{/* <GgBtnLogin navigation={navigation} /> */}
+						<GgBtnLogin navigation={navigation} />
 					</View>
 
 				</Content>

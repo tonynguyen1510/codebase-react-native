@@ -34,26 +34,25 @@ class FbBtnLogin extends Component {
 			if (result.isCancelled) {
 				console.log('Login was cancelled');
 			} else {
-				AccessToken.getCurrentAccessToken().then(
-					(data) => {
-						const { accessToken } = data;
+				AccessToken.getCurrentAccessToken().then((data) => {
+					console.log('data', data);
+					const { accessToken } = data;
 
-						if (!accessToken) {
-							this.props.toggleMessageBox({
-								message: 'AccessToken not found',
-								type: 'error'
-							});
-
-							return;
-						}
-
-						this.props.loginFacebook({ accessToken }, () => {
-							if (AuthStorage.loggedIn) {
-								this.props.navigation.navigate('Home');
-							}
+					if (!accessToken) {
+						this.props.toggleMessageBox({
+							message: 'AccessToken not found',
+							type: 'error'
 						});
+
+						return;
 					}
-				);
+
+					this.props.loginFacebook({ accessToken }, () => {
+						if (AuthStorage.loggedIn) {
+							this.props.navigation.navigate('Home');
+						}
+					});
+				});
 			}
 		}, (error) => {
 			this.props.toggleMessageBox({
