@@ -10,37 +10,12 @@ import {
 	Text,
 } from 'native-base';
 
-import Header from '../../components/Header';
-import Input from '../../components/Input';
+import Header from 'src/components/Header';
+import Input from 'src/components/Form/Input/ReduxForm';
+
+import { required, email, aol } from 'src/utils/validate';
 
 import styles from './styles';
-
-const validate = values => {
-	const error = {};
-	error.email = '';
-	error.password = '';
-	let ema = values.email;
-	let pw = values.password;
-	if (values.email === undefined) {
-		ema = '';
-	}
-	if (values.password === undefined) {
-		pw = '';
-	}
-	if (ema.length < 8 && ema !== '') {
-		error.email = 'too short';
-	}
-	if (!ema.includes('@') && ema !== '') {
-		error.email = '@ not included';
-	}
-	if (pw.length > 12) {
-		error.password = 'max 11 characters';
-	}
-	if (pw.length < 5 && pw.length > 0) {
-		error.password = 'Weak';
-	}
-	return error;
-};
 
 function mapStateToProps(/* state */) {
 	return {
@@ -54,7 +29,6 @@ const mapDispatchToProps = {
 
 @reduxForm({
 	form: 'forgotPass',
-	validate,
 })
 @connect(mapStateToProps, mapDispatchToProps)
 export default class ForgotPass extends Component {
@@ -85,6 +59,7 @@ export default class ForgotPass extends Component {
 							label="Email"
 							icon="ios-mail-outline"
 							component={Input}
+							validate={[required, email, aol]}
 						/>
 						<Button
 							block

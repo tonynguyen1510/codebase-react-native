@@ -12,36 +12,20 @@ import {
 	Text,
 } from 'native-base';
 
-import { loginRequest } from 'src/actions/auth';
-
+import Input from 'src/components/Form/Input/ReduxForm';
 import Header from 'src/components/Header';
-import Input from 'src/components/Input';
 import ButtonLoader from 'src/components/ButtonLoader';
 import FbBtnLogin from 'src/components/FbBtnLogin';
 import GgBtnLogin from 'src/components/GgBtnLogin';
 
 import AuthStorage from 'src/utils/AuthStorage';
+import { required, minLength, email, aol } from 'src/utils/validate';
+
+import { loginRequest } from 'src/actions/auth';
 
 import styles from './styles';
 
-const validate = values => {
-	const errors = {};
-	const { email, password } = values;
-
-	if (!email) {
-		errors.email = 'Required';
-	} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
-		errors.email = 'Invalid email address';
-	}
-
-	if (!password) {
-		errors.password = 'Required';
-	} else if (password.length < 5) {
-		errors.password = 'Too short';
-	}
-
-	return errors;
-};
+const minLength6 = minLength(6);
 
 function mapStateToProps(state) {
 	return {
@@ -55,7 +39,6 @@ const mapDispatchToProps = {
 
 @reduxForm({
 	form: 'login',
-	validate,
 	initialValues: {
 		email: 'admin@gmail.com',
 		password: '123456',
@@ -102,7 +85,7 @@ export default class Login extends Component {
 	}
 
 	render() {
-		const { handleSubmit, pristine, submitting, navigation } = this.props;
+		const { handleSubmit, /* pristine, */ submitting, navigation } = this.props;
 
 		return (
 			<Container style={styles.container}>
@@ -126,6 +109,7 @@ export default class Login extends Component {
 							icon="ios-mail-outline"
 							keyboardType="email-address"
 							component={Input}
+							validate={[required, email, aol]}
 						/>
 						<Field
 							name="password"
@@ -135,6 +119,7 @@ export default class Login extends Component {
 							returnKeyType="done"
 							onSubmitEditing={handleSubmit(this.handlePressSubmit)}
 							component={Input}
+							validate={[required, minLength6]}
 						/>
 						{
 							this.state.hasError && <Text style={{ fontSize: 10, color: '#d9534f', marginTop: 5, fontStyle: 'italic' }}>Tài khoản hoặc mật khẩu không đúng!</Text>

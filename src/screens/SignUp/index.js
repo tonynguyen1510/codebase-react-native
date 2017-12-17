@@ -12,36 +12,15 @@ import {
 } from 'native-base';
 
 import Header from 'src/components/Header';
-import Input from 'src/components/Input';
+import Input from 'src/components/Form/Input/ReduxForm';
 import ButtonLoader from 'src/components/ButtonLoader';
-import CheckBox from 'src/components/CheckBox';
+import CheckBox from 'src/components/Form/CheckBox/ReduxForm';
+
+import { required, minLength, email, aol } from 'src/utils/validate';
 
 import styles from './styles';
 
-const validate = values => {
-	const errors = {};
-	const { email, password, fullName } = values;
-
-	if (!email) {
-		errors.email = 'Required';
-	} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-		errors.email = 'Invalid email address';
-	}
-
-	if (!password) {
-		errors.password = 'Required';
-	} else if (password.length < 5) {
-		errors.password = 'Too short';
-	}
-
-	if (!fullName) {
-		errors.fullName = 'Required';
-	} else if (fullName.length < 5) {
-		errors.fullName = 'Too short';
-	}
-
-	return errors;
-};
+const minLength6 = minLength(6);
 
 function mapStateToProps(/* state */) {
 	return {
@@ -55,7 +34,6 @@ const mapDispatchToProps = {
 
 @reduxForm({
 	form: 'signUp',
-	validate,
 	initialValues: {
 		sendPR: true,
 	}
@@ -70,7 +48,6 @@ export default class SignUp extends Component {
 
 	state = {
 		loading: false,
-		hasError: false,
 	}
 
 	handlePressSubmit = (data) => {
@@ -94,6 +71,7 @@ export default class SignUp extends Component {
 							label="Họ và Tên"
 							icon="ios-person-outline"
 							component={Input}
+							validate={[required, minLength6]}
 						/>
 						<Field
 							name="email"
@@ -102,6 +80,7 @@ export default class SignUp extends Component {
 							keyboardType="email-address"
 							icon="ios-mail-outline"
 							component={Input}
+							validate={[required, email, aol]}
 						/>
 						<Field
 							name="password"
@@ -109,6 +88,7 @@ export default class SignUp extends Component {
 							secureTextEntry
 							icon="ios-unlock-outline"
 							component={Input}
+							validate={[required, minLength6]}
 						/>
 						<Text style={{ marginTop: 15 }}>
 							Đăng ký đồng nghĩa với việc bạn chấp nhận
