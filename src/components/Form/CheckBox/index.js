@@ -10,13 +10,13 @@ import {
 
 const CheckBoxComponent = ({ label, ...props }) => {
 	return (
-		<View style={{ flexDirection: 'row', marginTop: 15, alignItems: 'center', justifyContent: 'flex-start' }} >
+		<View style={{ flexDirection: 'row', marginTop: 15, alignItems: 'center' }} >
 			<CheckBox
 				{...props}
 				style={{ marginLeft: -10, marginRight: 10 }}
 			/>
 			<Body>
-				<Text style={{ marginLeft: 10, textAlign: 'left' }}>
+				<Text style={{ marginLeft: 20, textAlign: 'left', width: '100%' }}>
 					{label}
 				</Text>
 			</Body>
