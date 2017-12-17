@@ -62,7 +62,7 @@ export default class Input extends BaseInput {
 		icon: PropTypes.string,
 		error: PropTypes.oneOfType([
 			PropTypes.string,
-			PropTypes.boolean,
+			PropTypes.bool,
 		]),
 		success: PropTypes.bool,
 	};

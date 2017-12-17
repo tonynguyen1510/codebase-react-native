@@ -13,7 +13,7 @@ import {
 
 import Header from 'src/components/Header';
 import Input from 'src/components/Form/Input/ReduxForm';
-import ButtonLoader from 'src/components/ButtonLoader';
+import BtnLoader from 'src/components/Form/BtnLoader';
 import CheckBox from 'src/components/Form/CheckBox/ReduxForm';
 
 import { required, minLength, email, aol } from 'src/utils/validate';
@@ -101,7 +101,7 @@ export default class SignUp extends Component {
 							</Text>
 						</Text>
 
-						<ButtonLoader
+						<BtnLoader
 							block
 							info
 							style={styles.btn}

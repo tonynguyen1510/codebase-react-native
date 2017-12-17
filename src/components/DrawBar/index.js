@@ -1,3 +1,11 @@
+/* --------------------------------------------------------
+* Author Trần Đức Tiến
+* Email ductienas@gmail.com
+* Phone 0972970075
+*
+* Created: 2017-12-17 16:29:14
+*------------------------------------------------------- */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -12,13 +20,13 @@ import {
 	Right,
 	Badge,
 	Icon,
-	Thumbnail
+	Thumbnail,
 } from 'native-base';
 
-import { logoutRequest } from '../../actions/auth';
+import { logoutRequest } from 'src/actions/auth';
 
-import AuthStorage from '../../utils/AuthStorage';
-import color from '../../constants/color';
+import AuthStorage from 'src/utils/AuthStorage';
+import color from 'src/constants/color';
 
 import styles from './style';
 
@@ -30,32 +38,32 @@ const authenticatedRoutes = [
 	{
 		name: 'Home',
 		route: 'Home',
-		icon: 'ios-home-outline'
+		icon: 'ios-home-outline',
 	},
 	{
 		name: 'Danh sách nhà bạn đã lưu',
 		route: 'BlankPage2',
-		icon: 'ios-bookmark-outline'
+		icon: 'ios-bookmark-outline',
 	},
 	{
 		name: 'Trở thành chủ nhà',
 		route: 'BlankPage2',
-		icon: 'ios-ribbon-outline'
+		icon: 'ios-ribbon-outline',
 	},
 	{
 		name: 'Danh sách nhà của bạn',
 		route: 'BlankPage2',
-		icon: 'ios-clipboard-outline' ,
+		icon: 'ios-clipboard-outline',
 	},
 	{
 		name: 'Tài khoản',
 		route: 'Profile',
-		icon: 'ios-person-outline'
+		icon: 'ios-person-outline',
 	},
 	{
 		name: 'Đăng xuất',
 		route: 'logout',
-		icon: 'ios-log-out'
+		icon: 'ios-log-out',
 	},
 ];
 
@@ -63,12 +71,12 @@ const unauthenticatedRoutes = [
 	{
 		name: 'Home',
 		route: 'Home',
-		icon: 'ios-home-outline'
+		icon: 'ios-home-outline',
 	},
 	{
 		name: 'Đăng nhập',
 		route: 'Login',
-		icon: 'ios-log-in-outline'
+		icon: 'ios-log-in-outline',
 	}
 ];
 
@@ -135,12 +143,12 @@ class DrawBar extends Component {
 
 function mapStateToProps(state) {
 	return {
-		auth: state.auth
+		auth: state.auth,
 	};
 }
 
 const mapDispatchToProps = {
-	logoutRequest
+	logoutRequest,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrawBar);

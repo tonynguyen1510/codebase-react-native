@@ -8,17 +8,17 @@ import {
 	Icon,
 	Left,
 	Body,
-	Right
+	Right,
 } from 'native-base';
 
-import color from '../../constants/color';
+import color from 'src/constants/color';
 
 class AppHeader extends Component {
-	// static propTypes = {
-	// 	name: PropTypes.string.isRequired,
-	// 	hasBack: PropTypes.bool,
-	// 	navigation: PropTypes.object,
-	// };
+	static propTypes = {
+		name: PropTypes.string.isRequired,
+		hasBack: PropTypes.bool,
+		navigation: PropTypes.object,
+	};
 
 	render() {
 		const { name, navigation, hasBack } = this.props;

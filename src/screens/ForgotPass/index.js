@@ -12,6 +12,7 @@ import {
 
 import Header from 'src/components/Header';
 import Input from 'src/components/Form/Input/ReduxForm';
+import BtnLoader from 'src/components/Form/BtnLoader';
 
 import { required, email, aol } from 'src/utils/validate';
 
@@ -38,12 +39,21 @@ export default class ForgotPass extends Component {
 		navigation: PropTypes.object,
 	}
 
+	state = {
+		loading: false,
+		// hasError: false,
+	}
+
 	handlePress = (data) => {
+		this.setState({
+			loading: true,
+			// hasError: false,
+		});
 		console.log('data', data);
 	}
 
 	render() {
-		const { handleSubmit, /* pristine, submitting, */ navigation } = this.props;
+		const { handleSubmit, pristine, submitting, navigation } = this.props;
 
 		return (
 			<Container style={styles.container}>
@@ -57,18 +67,19 @@ export default class ForgotPass extends Component {
 						<Field
 							name="email"
 							label="Email"
+							autoCapitalize="none"
 							icon="ios-mail-outline"
 							component={Input}
 							validate={[required, email, aol]}
 						/>
-						<Button
+						<BtnLoader
 							block
 							info
 							style={styles.btn}
 							onPress={handleSubmit(this.handlePress)}
-						>
-							<Text>Đặt lại mật khẩu</Text>
-						</Button>
+							text="Đặt lại mật khẩu"
+							loading={this.state.loading || submitting}
+						/>
 						<View style={{ marginTop: 30, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end' }}>
 							<Text>Bạn đã có tài khoản?</Text>
 							<Button

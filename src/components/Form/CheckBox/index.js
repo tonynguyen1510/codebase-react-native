@@ -15,7 +15,7 @@ const CheckBoxComponent = ({ label, ...props }) => {
 				{...props}
 				style={{ marginLeft: -10, marginRight: 10 }}
 			/>
-			<Body style={{ textAlign: 'left' }}>
+			<Body>
 				<Text style={{ marginLeft: 10, textAlign: 'left' }}>
 					{label}
 				</Text>

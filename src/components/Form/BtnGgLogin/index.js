@@ -17,12 +17,12 @@ import {
 } from 'native-base';
 import { GoogleSignin } from 'react-native-google-signin';
 
-import AuthStorage from '../../utils/AuthStorage';
+import AuthStorage from 'src/utils/AuthStorage';
 
-import { loginGoogle } from '../../actions/auth';
-import { toggleMessageBox } from '../../actions/messageBox';
+import { loginGoogle } from 'src/actions/auth';
+import { toggleMessageBox } from 'src/actions/messageBox';
 
-class GgBtnLogin extends Component {
+class BtnGgLogin extends Component {
 	static propTypes = {
 		navigation: PropTypes.object.isRequired,
 		loginGoogle: PropTypes.func.isRequired,
@@ -34,7 +34,7 @@ class GgBtnLogin extends Component {
 		GoogleSignin.configure({
 			iosClientId: '356281179752-b2dvl8fhunurcbr1ilktvn09h0k6gf9u.apps.googleusercontent.com',
 			webClientId: '644292004780-4smqm48dgpn584kd1tg7i2s32g0h1oto.apps.googleusercontent.com',
-			offlineAccess: true
+			offlineAccess: true,
 		});
 	}
 
@@ -46,7 +46,7 @@ class GgBtnLogin extends Component {
 			if (!accessToken) {
 				this.props.toggleMessageBox({
 					message: 'AccessToken not found',
-					type: 'error'
+					type: 'error',
 				});
 
 				return;
@@ -61,7 +61,7 @@ class GgBtnLogin extends Component {
 			console.log('WRONG SIGNIN', err);
 			this.props.toggleMessageBox({
 				message: `Login failed with error: ${err}`,
-				type: 'error'
+				type: 'error',
 			});
 		}).done();
 	}
@@ -81,7 +81,7 @@ class GgBtnLogin extends Component {
 	}
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(/* state */) {
 	return {
 		// auth: state.auth
 	};
@@ -92,4 +92,4 @@ const mapDispatchToProps = {
 	toggleMessageBox,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(GgBtnLogin);
+export default connect(mapStateToProps, mapDispatchToProps)(BtnGgLogin);

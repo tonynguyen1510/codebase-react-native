@@ -14,9 +14,9 @@ import {
 
 import Input from 'src/components/Form/Input/ReduxForm';
 import Header from 'src/components/Header';
-import ButtonLoader from 'src/components/ButtonLoader';
-import FbBtnLogin from 'src/components/FbBtnLogin';
-import GgBtnLogin from 'src/components/GgBtnLogin';
+import BtnLoader from 'src/components/Form/BtnLoader';
+import BtnFbLogin from 'src/components/Form/BtnFbLogin';
+import BtnGgLogin from 'src/components/Form/BtnGgLogin';
 
 import AuthStorage from 'src/utils/AuthStorage';
 import { required, minLength, email, aol } from 'src/utils/validate';
@@ -124,7 +124,7 @@ export default class Login extends Component {
 						{
 							this.state.hasError && <Text style={{ fontSize: 10, color: '#d9534f', marginTop: 5, fontStyle: 'italic' }}>Tài khoản hoặc mật khẩu không đúng!</Text>
 						}
-						<ButtonLoader
+						<BtnLoader
 							block
 							info
 							style={styles.btn}
@@ -154,8 +154,8 @@ export default class Login extends Component {
 						<Text style={{ marginBottom: 15, marginTop: 30, fontStyle: 'italic' }}>
 							Hoặc đăng nhập bằng:
 						</Text>
-						<FbBtnLogin navigation={navigation} />
-						<GgBtnLogin navigation={navigation} />
+						<BtnFbLogin navigation={navigation} />
+						<BtnGgLogin navigation={navigation} />
 					</View>
 
 				</Content>

@@ -17,12 +17,12 @@ import {
 } from 'native-base';
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
-import AuthStorage from '../../utils/AuthStorage';
+import AuthStorage from 'src/utils/AuthStorage';
 
-import { loginFacebook } from '../../actions/auth';
-import { toggleMessageBox } from '../../actions/messageBox';
+import { loginFacebook } from 'src/actions/auth';
+import { toggleMessageBox } from 'src/actions/messageBox';
 
-class FbBtnLogin extends Component {
+class BtnFbLogin extends Component {
 	static propTypes = {
 		navigation: PropTypes.object.isRequired,
 		loginFacebook: PropTypes.func.isRequired,
@@ -57,7 +57,7 @@ class FbBtnLogin extends Component {
 		}, (error) => {
 			this.props.toggleMessageBox({
 				message: `Login failed with error: ${error}`,
-				type: 'error'
+				type: 'error',
 			});
 		});
 	}
@@ -85,7 +85,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
 	loginFacebook,
-	toggleMessageBox
+	toggleMessageBox,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FbBtnLogin);
+export default connect(mapStateToProps, mapDispatchToProps)(BtnFbLogin);

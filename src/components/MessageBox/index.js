@@ -12,7 +12,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import {
-	Container, Content,
+	Container,
+	Content,
 	Button,
 	Text,
 	Icon,
@@ -57,9 +58,9 @@ export default class MessageBox extends Component {
 					paddingTop: 15,
 					paddingBottom: 15,
 					paddingLeft: 15,
-					paddingRight: 15
+					paddingRight: 15,
 				}}
-				position={'center'}
+				position="center"
 				swipeToClose={false}
 				backButtonClose
 				coverScreen
