@@ -7,6 +7,6 @@
  *-------------------------------------------------------*/
 
 export default {
-	API_HOST: 'https://api.rencity.vn/api/v1/',
-	// API_HOST: 'http://192.168.1.6:3005/api/v1/',
+	API_BASE_URL: 'https://api.rencity.vn/api/v1/',
+	// API_BASE_URL: 'http://192.168.1.6:3005/api/v1/',
 };

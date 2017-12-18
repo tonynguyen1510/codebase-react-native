@@ -8,14 +8,19 @@
 
 import { LoginManager } from 'react-native-fbsdk';
 import { GoogleSignin } from 'react-native-google-signin';
-import { take, call, put, cancel, fork, all } from 'redux-saga/effects';
-import fetchApi, { uploadImage, deleteImage } from 'src/utils/FetchApi';
+import { take, call, put, cancel, fork } from 'redux-saga/effects';
 
-import AuthStorage from '../utils/AuthStorage';
+import fetchApi from 'src/utils/FetchApi';
+import AuthStorage from 'src/utils/AuthStorage';
 
 function* authorize(email, password, next) {
 	try {
-		const response = yield call(fetchApi, 'users/login?include=user', { email, password }, { method: 'POST' }, true);
+		const response = yield call(fetchApi, {
+			uri: 'users/login?include=user',
+			params: { email, password },
+			opt: { method: 'POST' },
+			loading: false,
+		});
 		if (response && !response.error) {
 			const data = {
 				token: response.id,
@@ -59,7 +64,12 @@ function* loginGoogleFlow() {
 	while (INFINITE) {
 		const { payload, next } = yield take('LOGIN_GOOGLE');
 		try {
-			const response = yield call(fetchApi, 'users/login-google', payload, { method: 'POST' });
+			const response = yield call(fetchApi, {
+				uri: 'users/login-google',
+				params: payload,
+				opt: { method: 'POST' },
+			});
+
 			if (response && !response.error) {
 				const data = {
 					token: response.id,
@@ -90,7 +100,11 @@ function* loginFacebookFlow() {
 	while (INFINITE) {
 		const { payload, next } = yield take('LOGIN_FACEBOOK');
 		try {
-			const response = yield call(fetchApi, 'users/login-facebook', payload, { method: 'POST' });
+			const response = yield call(fetchApi, {
+				uri: 'users/login-facebook',
+				params: payload,
+				opt: { method: 'POST' },
+			});
 			if (response && !response.error) {
 				const data = {
 					token: response.id,
@@ -121,7 +135,11 @@ function* logoutFlow() {
 	while (INFINITE) {
 		const { next } = yield take('LOGOUT_REQUEST');
 		try {
-			const response = yield call(fetchApi, 'users/logout', {}, { method: 'POST' });
+			const response = yield call(fetchApi, {
+				uri: 'users/logout',
+				opt: { method: 'POST' },
+			});
+
 			if (response && !response.error) {
 				if (AuthStorage.loginType === 'facebook') {
 					yield call(LoginManager.logOut);

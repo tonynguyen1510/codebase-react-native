@@ -10,13 +10,16 @@
 import { fork } from 'redux-saga/effects';
 
 import auth from './auth';
+import middleware from './middleware';
 
 export function* startup() {
 	yield console.log('Hello Redux-Saga');
 }
 
 export default function* root() {
-	// combine your saga here
 	yield fork(startup);
+	yield fork(middleware);
+
+	// combine your saga here
 	yield fork(auth);
 }
