@@ -20,18 +20,18 @@ function* authorize(email, password, next) {
 			const data = {
 				token: response.id,
 				userId: response.userId,
-				loginType: response.user.loginType
+				loginType: response.user.loginType,
 			};
 			yield call(AuthStorage.setValue, data, next);
 
 			yield put({
 				type: 'LOGIN_SUCCESS',
-				payload: response.user
+				payload: response.user,
 			});
 		} else {
 			yield put({
 				type: 'LOGIN_FAILED',
-				payload: response
+				payload: response,
 			});
 		}
 	} catch (err) {
@@ -64,18 +64,18 @@ function* loginGoogleFlow() {
 				const data = {
 					token: response.id,
 					userId: response.userId,
-					loginType: response.user.loginType
+					loginType: response.user.loginType,
 				};
 				yield call(AuthStorage.setValue, data, next);
 
 				yield put({
 					type: 'LOGIN_SUCCESS',
-					payload: response.user
+					payload: response.user,
 				});
 			} else {
 				yield put({
 					type: 'LOGIN_FAILED',
-					payload: response
+					payload: response,
 				});
 			}
 		} catch (err) {
@@ -95,18 +95,18 @@ function* loginFacebookFlow() {
 				const data = {
 					token: response.id,
 					userId: response.userId,
-					loginType: response.user.loginType
+					loginType: response.user.loginType,
 				};
 				yield call(AuthStorage.setValue, data, next);
 
 				yield put({
 					type: 'LOGIN_SUCCESS',
-					payload: response.user
+					payload: response.user,
 				});
 			} else {
 				yield put({
 					type: 'LOGIN_FAILED',
-					payload: response
+					payload: response,
 				});
 			}
 		} catch (err) {

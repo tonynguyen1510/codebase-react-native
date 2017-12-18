@@ -10,14 +10,14 @@ export function loginRequest(payload, next) {
 	return {
 		type: 'LOGIN_REQUEST',
 		payload,
-		next
+		next,
 	};
 }
 
 export function logoutRequest(next) {
 	return {
 		type: 'LOGOUT_REQUEST',
-		next
+		next,
 	};
 }
 
@@ -25,7 +25,7 @@ export function loginGoogle(payload, next) {
 	return {
 		type: 'LOGIN_GOOGLE',
 		payload,
-		next
+		next,
 	};
 }
 
@@ -33,6 +33,6 @@ export function loginFacebook(payload, next) {
 	return {
 		type: 'LOGIN_FACEBOOK',
 		payload,
-		next
+		next,
 	};
 }
