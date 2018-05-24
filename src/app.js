@@ -154,9 +154,9 @@ class App extends Component {
 
 		return (
 			<Root>
-				<Spinner />
 				<MainStackRouter />
 				<MessageBox />
+				<Spinner />
 			</Root>
 		);
 	}

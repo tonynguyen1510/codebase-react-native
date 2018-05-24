@@ -57,6 +57,7 @@ export default class Login extends Component {
 	}
 
 	componentWillMount() {
+		console.log('AuthStorage', AuthStorage.loggedIn);
 		if (AuthStorage.loggedIn) {
 			this.props.navigation.navigate('Home');
 		}
@@ -98,10 +99,6 @@ export default class Login extends Component {
 				/>
 				<Content style={styles.content}>
 					<View>
-						<Text style={{ marginBottom: 15, fontStyle: 'italic' }}>
-							Với việc đăng nhập, bạn có thể lưu và chia sẻ nhiều địa chỉ hữu ích với bạn bè.
-							Hay thậm chí là bạn có thể đăng thông tin về dãy trọ của bạn.
-						</Text>
 						<Field
 							name="email"
 							label="Email"
