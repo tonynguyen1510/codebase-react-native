@@ -1,5 +1,6 @@
 <resources>
-    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey"></string>
-    <string name="app_name">CodeBase</string>
-	<string name="facebook_app_id">2049088788714176</string>
+    <string name="reactNativeCodePush_androidDeploymentKey"></string>
+    <string moduleConfig="true" name="app_name">CodeBase</string>
+	<string name="facebook_app_id">103913873803490</string>
+    <string name="fb_login_protocol_scheme">fb103913873803490</string>
 </resources>

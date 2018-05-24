@@ -19,8 +19,8 @@ import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
 import AuthStorage from 'src/utils/AuthStorage';
 
-import { loginFacebook } from 'src/actions/auth';
-import { toggleMessageBox } from 'src/actions/messageBox';
+import { loginFacebook } from 'src/redux/actions/auth';
+import { toggleMessageBox } from 'src/redux/actions/messageBox';
 
 class BtnFbLogin extends Component {
 	static propTypes = {
@@ -30,7 +30,7 @@ class BtnFbLogin extends Component {
 	}
 
 	handleLoginFb = () => {
-		LoginManager.logInWithReadPermissions(['public_profile']).then((result) => {
+		LoginManager.logInWithReadPermissions(['public_profile', 'email']).then((result) => {
 			if (result.isCancelled) {
 				console.log('Login was cancelled');
 			} else {

@@ -21,7 +21,7 @@ import BtnGgLogin from 'src/components/Form/BtnGgLogin';
 import AuthStorage from 'src/utils/AuthStorage';
 import { required, minLength, email, aol } from 'src/utils/validate';
 
-import { loginRequest } from 'src/actions/auth';
+import { loginRequest } from 'src/redux/actions/auth';
 
 import styles from './styles';
 

@@ -20,7 +20,7 @@ import {
 } from 'native-base';
 import Modal from 'react-native-modalbox';
 
-import { toggleMessageBox } from 'src/actions/messageBox';
+import { toggleMessageBox } from 'src/redux/actions/messageBox';
 
 function mapStateToProps(state) {
 	return {

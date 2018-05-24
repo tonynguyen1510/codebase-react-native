@@ -14,15 +14,14 @@ import { connect } from 'react-redux';
 
 import { Container, Content, Text, View, Root, Toast } from 'native-base';
 // import Modal from 'react-native-modalbox';
-import MainStackRouter from './routers/MainStackRouter';
+import { toggleMessageBox } from 'src/redux/actions/messageBox';
+import MainStackRouter from './Routers/MainStackRouter';
 // import ProgressBar from './components/Loaders/ProgressBar';
 
 // import theme from './themes/base-theme';
 
-import Spinner from './components/Loaders/Spinner';
+import Spinner from './components/loaders/Spinner';
 import MessageBox from './components/MessageBox';
-
-import { toggleMessageBox } from './actions/messageBox';
 
 // const styles = StyleSheet.create({
 // 	container: {

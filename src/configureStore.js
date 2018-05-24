@@ -12,7 +12,7 @@ import createSagaMiddleware from 'redux-saga';
 import { persistStore, persistCombineReducers } from 'redux-persist';
 import logger from 'redux-logger';
 
-import reducer from './reducers';
+import reducer from 'src/redux/reducers';
 import dataSaga from './sagas';
 
 // create the saga middleware

@@ -23,7 +23,7 @@ import {
 	Thumbnail,
 } from 'native-base';
 
-import { logoutRequest } from 'src/actions/auth';
+import { logoutRequest } from 'src/redux/actions/auth';
 
 import AuthStorage from 'src/utils/AuthStorage';
 import color from 'src/constants/color';

@@ -10,7 +10,7 @@ import { takeEvery, call, put } from 'redux-saga/effects';
 
 import fetchApi from 'src/utils/FetchApi';
 
-export const SINGLE_API = Symbol('SINGLE_API');
+export const SINGLE_API = 'SINGLE_API';
 
 function* callApi(action) {
 	if (action.type === SINGLE_API) {

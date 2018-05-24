@@ -15,7 +15,7 @@ import configureStore from './configureStore';
 import getTheme from '../native-base-theme/components';
 import material from '../native-base-theme/variables/material';
 
-import { toggleLoader } from './actions/loader';
+import { toggleLoader } from './redux/actions/loader';
 
 export default class Root extends Component {
 	state = {

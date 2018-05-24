@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -13,7 +13,7 @@ import {
 
 import color from 'src/constants/color';
 
-class AppHeader extends Component {
+class AppHeader extends PureComponent {
 	static propTypes = {
 		name: PropTypes.string.isRequired,
 		hasBack: PropTypes.bool,
