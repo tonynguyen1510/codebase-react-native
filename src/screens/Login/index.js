@@ -57,14 +57,17 @@ export default class Login extends Component {
 	}
 
 	componentWillMount() {
-		console.log('AuthStorage', AuthStorage.loggedIn);
-		if (AuthStorage.loggedIn) {
-			this.props.navigation.navigate('Home');
-		}
+	}
+
+	componentDidMount() {
 	}
 
 	componentWillReceiveProps(nextProps) {
 		const { auth } = nextProps;
+		if (AuthStorage.loggedIn) {
+			this.props.navigation.navigate('Home');
+		}
+
 		if (auth.error && this.state.loading) {
 			this.setState({
 				loading: false,

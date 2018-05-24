@@ -5,15 +5,18 @@
  *
  * Created: 2017-07-21 21:00:52
  *-------------------------------------------------------*/
+const initialState = {
+	userInfo: {},
+}
 
-function auth(state = {}, action) {
+function auth(state = { userInfo: initialState }, action) {
 	switch (action.type) {
 		case 'LOGIN_SUCCESS':
 			return action.payload;
 		case 'LOGIN_FAILED':
 			return { error: action.payload.error || action.payload.error };
 		case 'LOGOUT_SUCCESS':
-			return {};
+			return initialState;
 		default:
 			return state;
 	}
